@@ -90,19 +90,45 @@ var upperCasedCharacters = [
 
 var userOptions = {};
 
-function getPasswordOptions() {
-  userOptions = {
-    numOfChar: prompt("How many characters you want on your password?"),
+var howMany = function () {
+  var numOfChar = Number(
+    prompt("How many characters you want on your password?")
+  );
+
+// create a condition to the numbers of characters
+  if (numOfChar >= 10 && numOfChar <= 64) {
+    return numOfChar;
+  } else {
+    alert(
+      "Your password need at least 10 characters but no more than 64. Please try again."
+    );
+    return howMany()
+  }
+};
+
+var characters = function(){
+  var char = {
     lowCase: confirm("Do you want a lower case letters on your password?"),
     upCase: confirm("Do you want a upper case letters on your password?"),
     numCase: confirm("Do you want numeric characters on your password?"),
     specialCase: confirm("Do you want special characters on your password?"),
-  };
+  }
 
+// Code should validate for each input and at least one character type should be selected.
+  if(char.lowCase || char.upCase || char.numCase || char.specialCase){
+    return char;
+  }else{
+    alert("At least one character type should be selected, Please try again.")
+    return characters()
+  }
 }
 
-//TODO: create a condition to the numbers of characters
-//TODO: Code should validate for each input and at least one character type should be selected.
+function getPasswordOptions() {
+  userOptions = {
+    numOfChar: howMany(),
+    userCharacters: characters()
+  };
+}
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -123,8 +149,7 @@ console.log(getRandom(upperCasedCharacters));
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
-    console.log(userOptions)
-
+  console.log(userOptions);
   return userOptions.numOfChar;
   // return getPasswordOptions();
 }
