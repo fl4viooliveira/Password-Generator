@@ -88,47 +88,45 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-// Function to prompt user for password options
-var numberOfCharacters = ""
-var lowerCharacters = ""
-var upperCharacters = ""
-var numberCharacters = ""
-var specialCharacter = ""
+var userOptions = {};
 
 function getPasswordOptions() {
-  var userOptions = {
-    charactersNumber: prompt("How many characters you want on your password?"),
-    lowerCase: confirm("Do you want a lower case letters on your password?"),
-    upperCase: confirm("Do you want a upper case letters on your password?"),
-    numeric: confirm("Do you want numeric characters on your password?"),
-    special: confirm("Do you want special characters on your password?"),
+  userOptions = {
+    numOfChar: prompt("How many characters you want on your password?"),
+    lowCase: confirm("Do you want a lower case letters on your password?"),
+    upCase: confirm("Do you want a upper case letters on your password?"),
+    numCase: confirm("Do you want numeric characters on your password?"),
+    specialCase: confirm("Do you want special characters on your password?"),
   };
-    
-    numberOfCharacters = userOptions.charactersNumber;
-    lowerCharacters = userOptions.lowerCase;
-    upperCharacters = userOptions.upperCase;
-    numericCharacters = userOptions.numeric;
-    specialCharacters = userOptions.special;
 
-    // return userOptions, console.log(userOptions);
 }
 
-    //TODO: create a condition to the numbers of characters
-    //TODO: Code should validate for each input and at least one character type should be selected.
+//TODO: create a condition to the numbers of characters
+//TODO: Code should validate for each input and at least one character type should be selected.
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  // get random index of the array
+  const i = Math.floor(Math.random() * arr.length);
 
+  // get random item using random index
+  const item = arr[i];
+
+  return item;
 }
 
+console.log(getRandom(specialCharacters));
+console.log(getRandom(numericCharacters));
+console.log(getRandom(lowerCasedCharacters));
+console.log(getRandom(upperCasedCharacters));
 
 // Function to generate password with user input
 function generatePassword() {
-    getPasswordOptions()
+  getPasswordOptions();
+    console.log(userOptions)
 
-    return numberOfCharacters;
+  return userOptions.numOfChar;
   // return getPasswordOptions();
-
 }
 
 // Get references to the #generate element
