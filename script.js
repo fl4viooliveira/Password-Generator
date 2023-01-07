@@ -88,13 +88,6 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-// Function to prompt user for password options
-// var numberOfCharacters = ""
-// var lowerCharacters = ""
-// var upperCharacters = ""
-// var numberCharacters = ""
-// var specialCharacter = ""
-
 var userOptions = {};
 
 function getPasswordOptions() {
@@ -106,13 +99,6 @@ function getPasswordOptions() {
     specialCase: confirm("Do you want special characters on your password?"),
   };
 
-  // numberOfCharacters = userOptions.charactersNumber;
-  // lowerCharacters = userOptions.lowerCase;
-  // upperCharacters = userOptions.upperCase;
-  // numericCharacters = userOptions.numeric;
-  // specialCharacters = userOptions.special;
-
-  // return userOptions, console.log(userOptions);
 }
 
 //TODO: create a condition to the numbers of characters
@@ -129,6 +115,9 @@ function getRandom(arr) {
   return item;
 }
 
+console.log(getRandom(specialCharacters));
+console.log(getRandom(numericCharacters));
+console.log(getRandom(lowerCasedCharacters));
 console.log(getRandom(upperCasedCharacters));
 
 // Function to generate password with user input
