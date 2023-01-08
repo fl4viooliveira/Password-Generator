@@ -95,38 +95,38 @@ var howMany = function () {
     prompt("How many characters you want on your password?")
   );
 
-// create a condition to the numbers of characters
+  // create a condition to the numbers of characters
   if (numOfChar >= 10 && numOfChar <= 64) {
     return numOfChar;
   } else {
     alert(
       "Your password need at least 10 characters but no more than 64. Please try again."
     );
-    return howMany()
+    return howMany();
   }
 };
 
-var characters = function(){
+var characters = function () {
   var char = {
     lowCase: confirm("Do you want a lower case letters on your password?"),
     upCase: confirm("Do you want a upper case letters on your password?"),
     numCase: confirm("Do you want numeric characters on your password?"),
     specialCase: confirm("Do you want special characters on your password?"),
-  }
+  };
 
-// Code should validate for each input and at least one character type should be selected.
-  if(char.lowCase || char.upCase || char.numCase || char.specialCase){
+  // Code should validate for each input and at least one character type should be selected.
+  if (char.lowCase || char.upCase || char.numCase || char.specialCase) {
     return char;
-  }else{
-    alert("At least one character type should be selected, Please try again.")
-    return characters()
+  } else {
+    alert("At least one character type should be selected, Please try again.");
+    return characters();
   }
-}
+};
 
 function getPasswordOptions() {
   userOptions = {
     numOfChar: howMany(),
-    userCharacters: characters()
+    userCharacters: characters(),
   };
 }
 
@@ -141,17 +141,38 @@ function getRandom(arr) {
   return item;
 }
 
-console.log(getRandom(specialCharacters));
-console.log(getRandom(numericCharacters));
-console.log(getRandom(lowerCasedCharacters));
-console.log(getRandom(upperCasedCharacters));
+var special = getRandom(specialCharacters);
+var numeric = getRandom(numericCharacters);
+var lowerCase = getRandom(lowerCasedCharacters);
+var upperCase = getRandom(upperCasedCharacters);
 
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
-  console.log(userOptions);
-  return userOptions.numOfChar;
-  // return getPasswordOptions();
+
+  var userChar = userOptions.userCharacters;
+
+  var charArrayModel = [];
+  var pass = []
+
+  for (let i = 0; i < userOptions.numOfChar; i++) {
+    // run the user options functions
+    if(userChar.lowCase){
+      charArrayModel.push(getRandom(lowerCasedCharacters))
+    }if(userChar.upCase){
+      charArrayModel.push(getRandom(upperCasedCharacters))
+    }if(userChar.numCase){
+      charArrayModel.push(getRandom(numericCharacters))
+    }if(userChar.specialCase){
+      charArrayModel.push(getRandom(specialCharacters))
+    }
+    // populate the pass array repeting charArrayModel
+    pass.push(charArrayModel[i % charArrayModel.length])
+  }
+
+  // console.log(pass)
+
+  return pass.join("");
 }
 
 // Get references to the #generate element
