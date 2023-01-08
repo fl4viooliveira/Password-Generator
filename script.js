@@ -146,23 +146,17 @@ var numeric = getRandom(numericCharacters);
 var lowerCase = getRandom(lowerCasedCharacters);
 var upperCase = getRandom(upperCasedCharacters);
 
-console.log(special, numeric, lowerCase, upperCase);
-
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
-  console.log(userOptions);
 
   var userChar = userOptions.userCharacters;
-  console.log(userChar);
 
   var charArrayModel = [];
   var pass = []
 
-  console.log(charArrayModel)
-  console.log(userOptions.numOfChar)
-
   for (let i = 0; i < userOptions.numOfChar; i++) {
+    // run the user options functions
     if(userChar.lowCase){
       charArrayModel.push(getRandom(lowerCasedCharacters))
     }if(userChar.upCase){
@@ -172,13 +166,12 @@ function generatePassword() {
     }if(userChar.specialCase){
       charArrayModel.push(getRandom(specialCharacters))
     }
-
+    // populate the pass array repeting charArrayModel
     pass.push(charArrayModel[i % charArrayModel.length])
   }
 
-  console.log(pass)
+  // console.log(pass)
 
-  // return userOptions.numOfChar;
   return pass.join("");
 }
 
