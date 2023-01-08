@@ -1,34 +1,57 @@
 <!DOCTYPE html>
 <html lang="en-gb">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
+
+<head>
+  <!-- Primary Meta Tags   -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+
+  <meta property="og:title" content="Password Generator" key="Password Generator" />
+  <meta name="description"
+    content="This activity requires you to create an application that an employee can use to generate a random password based on criteria they've selected by modifying starter code." />
+  <meta name="keywords"
+    content="javascript, html, frontend, css, opensource" />
+
+  <!-- Open Graph / Facebook   -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fl4viooliveira.github.io/Password-Generator/" />
+  <meta property="og:title" content="Password Generator" />
+  <meta property="og:description"
+    content="This activity requires you to create an application that an employee can use to generate a random password based on criteria they've selected by modifying starter code." />
+  <meta property="og:image" content="https://fl4viooliveira.github.io/Password-Generator/page.png" />
+
+  <!-- Twitter  -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://fl4viooliveira.github.io/Password-Generator/" />
+  <meta property="twitter:title" content="Password Generator" />
+  <meta property="twitter:description"
+    content="This activity requires you to create an application that an employee can use to generate a random password based on criteria they've selected by modifying starter code." />
+  <meta property="twitter:image" content="https://fl4viooliveira.github.io/Password-Generator/page.png" />
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="card">
+      <div class="card-header">
+        <h2>Generate a Password</h2>
+      </div>
+      <div class="card-body">
+        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+      </div>
+      <div class="card-footer">
+        <button id="generate" class="btn">Generate Password</button>
       </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
